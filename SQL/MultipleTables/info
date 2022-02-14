@@ -1,0 +1,28 @@
+JOIN /table/
+  * joins two table together
+  * select which table should be ordered in if they have the same data type
+     - ON tabl1.rowtype1 = tabl2.rowtype2
+        (this will joine tabl2 with table1 in order of how tabl1's rowtype1 is ordered in)
+  * if row data doesn't contain same data in other row it is joining, JOIN only joins rows
+    that match ON condition
+
+LEFT JOIN
+  * joins tow table together
+  * like the above statement yet the unmatched elements on the will be kept on the first table
+
+primary keys vs foreign keys
+  * primary keys are keys in one table that defines a specific row
+  * foreign keys are primary keys that are found in a different table.
+
+CROSS JOIN
+  * combines all rows of selected table and create possibilities with another table's data
+
+UNION
+  * stack one dataset on top of the other
+  * when appending data:
+      - tables must have same number of columns
+      - columns must have same data type in same order as first table
+
+WITH
+  * combine two tables when one of them is result of another calculation
+  * perform separate query

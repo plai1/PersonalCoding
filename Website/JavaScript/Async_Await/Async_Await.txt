@@ -1,0 +1,124 @@
+* asynchronous actions important in web development
+* Javascript is non-blocking: instead of stopping execution of code as it wats,
+  javascript uses event-loop, allowing it to efficiently execute other tasks
+  while it awaits completion of asynchronous actions
+* in ES8, javasript is provided syntax for handling asunchornouse actions: async...await
+  - allows us to write asynchronous code that reads similarly to traditional
+    suncrhonous, imperative programs
+* 'async...await' syntax is syntactic sugar (doesn't introduce new functionality into
+   language but rather introduce new syntax for using promises and generators)
+   - although these were already built in, async...await powerfully improves readability and scalability of code
+
+
+
+
+
+
+
+The async Keyword
+  * used to write functions that handle asynchronous actions
+    - Examples:
+        +  async function myFunc() {
+              //Function body here
+           };
+
+           myFunc();
+
+        +   const myFunc = async () => {
+              // Function body here
+            };
+
+            myFunc();
+  * always return promise
+      - can use promise syntax ('.then()', '.catch()')
+      - returns one of three ways:
+        + promise of undefined of there's nothing returned from functions
+        + promise resolved to a value if there's a non-promise value returned from function
+        + a promise of there is a promise is returned from the functions
+      - example:
+            async function fivePromise() {
+              return 5;
+            }
+
+            fivePromise()
+            .then(resolvedValue => {
+              console.log(resolvedValue);
+            }) // Print 5
+
+
+
+
+
+
+The await Operator
+  * 'async' functions are almost always used with additional keyword 'await'
+  * 'await' keyword only be used inside async function
+  * 'await' is operator (returns resolved value of a promise)
+    - since promises resolve in indeterminate amount of time, 'await' pauses execution of
+      async function until given promise is resolved
+    - Example:
+          async function asyncFuncExample() {
+            let resolvedValue = await myPromise();
+            console.log(resolvedValue);
+          }
+
+          asyncFuncExample(); //Prints resvoledValue
+        + 'await' halt execution of asyncFuncExample until 'myPromise()' is resolved and assings
+          its resolved value to variable 'resolvedValue'
+        + code then log 'resolvedValue' to console
+    - 'await' best used for any 'async' function because function would use 'Promise: { <pending> }' from promise
+      function instead of a value which can cause problems
+
+
+
+
+
+
+Handling Dependent Promises
+  * when handling connected asynchronous actions, using async and await has manny uses
+    - can save use some typing
+    - 'async..await' version of multiple '.then()' closely resembles synchronous code which
+      helps developers maintain and debug code.
+    - makes it easy to store and refer to resolved values from promises further back in
+      chain which is much more difficult task with native promise syntax
+
+
+
+
+Handling Errors
+  * using 'async...await' with 'try...catch' can help when dealing with error handling
+  * after defining async function, use 'try' to run promise function
+    - if promise returns a rejected answer, 'catch(error)' will catch the rejected portion
+      and run code in 'catch' statement.
+        + the 'error' will be whatever is returned in a promise function's reject.
+  * example:
+        async function usingTryCatch() {
+          try {
+            let resolveValue = await asyncFunction('thing that will fail');
+            let secondValue = await secondAsyncFunction(resolveValue);
+          } catch (err) {
+            // Catches any errors in the try block
+            console.log(err);
+            }
+          }
+
+          usingTryCatch();
+
+
+
+Handling Independent Promises
+  * if there is an async function that requires the use of more than one await syntax
+    for more than one promises that don't rely on one another, we can take advantage of concurrency to
+    run the code smoothly
+      - assign each promise function to a variable without 'await'
+      - then, console.log the variable with 'await' at the front.
+
+
+
+
+
+
+
+Handling Promise.all with await
+  * same as Independent promises, we can 'await' a 'Promise.all()' syntax with lists of promise functions
+    that returns a list of promises which we can use through list's index.

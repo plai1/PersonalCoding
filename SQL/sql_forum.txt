@@ -1,0 +1,29 @@
+SQLite:
+ * database engine
+ * database stored in single file
+ * C-language library implementing a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+ * most used database engine in world
+ * file format is:
+   -stable
+   -cross-platform
+   -backwards compatible
+
+
+* CONS:
+  - poor choice when many different users update table at same time.
+  - require more work ensuring security of private data
+  - doesn't same exact functionality as many other database systems
+  - doesn't validate data types.
+    + allow users to store data of any type in any column (don't know how it is a con)
+    + however, won't reject values of wrong types
+
+
+
+    
+* USES:
+  - many benefits when accessing and manipulating database
+    without involving server application
+  - used for:
+    + testing
+    + development
+    + other scenarios when putting database on same disk as application code.

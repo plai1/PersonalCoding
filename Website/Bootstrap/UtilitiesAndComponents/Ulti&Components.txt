@@ -1,0 +1,196 @@
+Bootstrap Utilities and Components
+  * focus on Bootstraps' utility classes that provides additional styling and components each
+    serving distinct purposes
+
+
+
+
+Adding Colors
+  * bootstrap utility classes provide element with styling and purpose
+      - to change text color of paragraph element from default black to blue,
+        add class "text-primary"
+          + example:
+              <p class="text-primary">This text is blue!</p>
+          + "text" portion targest element's text styling
+          + "primary" changes text color to blue
+          + "text-primary" also signifies that this '<p>' element conveys
+            information that appears first (primary text)
+      - can also change background color
+          + example:
+              <div class="bg-success">
+                Green! This signifies success!
+              </div
+          + 'bg' references element's background
+          + 'success' changes background color to green
+          + name of class suggest this '<div' element is meant to be used when something
+            happened/worked
+
+
+
+
+Styling Text
+  * to style and format text, we can use Bootstrap's text utility classes
+      - Example:
+            <p class="font-weight-bold">
+              This rendered text is bold.
+            </p>
+          + text in paragraph will be bolded
+      - Example:
+            <p class="font-weight-bold text-uppercase">
+              This rendered text is both bold and uppercased.
+            </p>
+          + text will be bolded and uppercased
+
+
+Element Positioning
+  * when considering layout of webpage, we have to think about how to position elements
+  * Bootstrap provides positioning utility classes
+      - Example:
+              <div class="fixed-top">
+                This div will be fixed at the top of the screen.
+              </div>
+
+
+
+Navigation Component
+  * each Bootstrap component serves distinct purpose and we can find examples and code snippets
+    directly from documentation
+  * navigation (nav) component offers users collection of links
+  * slightly different from navbar component
+      - nav component often specific to one or few webpages
+      - navbar often appears on all pages of website
+  * basic nav component :
+          <ul calss="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">First Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Second Link</a>
+            </li>
+          </ul>
+     - navigation component using '<ul>' with class of "nav"
+     - '<ul' nested '<li>' elements which each have class of "nav-item"
+     - inside each '<li' is '<a>' which has class of "nav-link"
+  * simpler nav component of only links:
+          <nav class="nav">
+              <a class="nav-link" href="#">First Link</a>
+              <a class="nav-link" href="#">Second Link</a>
+          </nav>
+      - still have parent element with class of "nav" and children
+        elements with class of "nav-link"
+  * both examples render same links
+      - might choose one example over other depending on how we want layout to look
+
+
+
+The Button Component
+  * buttons represent clickable object that does something else in return
+  * by default, '<button>' element doesn't have much styling
+  * with Bootstrap, we can make button components that have more styling
+      - example:
+              <button type="button" class="btn btn-danger">Danger</buttion>
+          + has 'type' of "button"
+          + tow classes, "btn" and "btn-danger"
+              # "btn" class provides Bootstrap's default button styling
+              # "btn-danger" turns button red and conveys purpose of button
+  * link to button documentation: https://getbootstrap.com/docs/4.2/components/buttons/
+
+
+
+
+
+Collapsing a Component
+  * bootstrap allows us to quickly add interactivity to webpage, one way
+    to include interactivity is toggle visibility of an element
+  * to add feature, two elements needed and a few attributes:
+      - one element with content
+      - another element that switches visibility of previous element
+      - example:
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-
+            target="#collapseExample" aria-expanded="false" aria-
+            controls="collapseExample">
+              This button controls the following div's visibility.
+            </button>
+
+            <div class="collapse" id="collapseExample">
+              <p>This content's visibility gets toggled</p>
+            </div>
+          + '<button>' element that toggles visibility of '<div>' element
+          + has attribute 'data-toggle="collapse"' enabling button's toggle abililty
+          + another attribute, 'data-target="#collapseExample"', means button toggles
+            visibility of element with 'id' of "collapseExample"
+          + 'aria-expanded' and 'aria-controls' attributes are information for screen readers
+            and other accessibility means
+          + in '<div>', has class of "collapse" which hides content when webpage initially
+            renders
+          + '<div>' also has 'id' of "collapseExample" which corresponds to value of
+            button's 'data-target'
+
+
+
+Jumbotron Component
+  * bootstrap offers jumbotron component serving similar function of actual
+    jumbotron and makes content stand out
+  * example:
+        <div class="jumbotron">
+          <h1>Wow this stands out!</h1>
+        </div>
+  * more info on bootstrap jumbotron component: https://getbootstrap.com/docs/4.2/components/jumbotron
+
+
+
+
+
+
+Adding a Card
+  * bootstrap has card component that serves as container for smaller customized content
+  * card component often grouped together to display collection of similar content in manageable chunks
+      - same as playing cards
+  * example:
+          <div class="card">
+            <img class="card-img-top" src="placeholder.jpg" alt="card example image">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Card description goes here.</p>
+              <a href="#" class="card-link">Link to somewhere.</a>
+            </div>
+          </div>
+      - use class of "card" to make card component
+      - inside, two children, '<img>' and '<div>'
+          + '<img>' has class of "card-img-top" which adds styling and formatting to image
+          + '<div>' has class of "card-body" which adds section with default padding
+      - content inside card body all have classes with "card-{value}" which adds styling to
+        these elements specific for Bootstrap cards
+      - by default, card will take up entire width of its parent element
+  * documentation of Bootstrap's card element: https://getbootstrap.com/docs/4.2/components/card/#example
+
+
+
+
+
+  Carousel Component
+    * showcase group of images but do not want users to scroll through one picture atop another
+      and instead show it with slideshow
+    * basic carousel example:
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="example_slide_1.png" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="example_slide_2.png" alt="Second slide">
+              </div>
+            </div>
+          </div>
+        - parent '<div>' element has 'id' of "carouselExampleSlidesOnly",
+          two classes "carousel" and "slide" and attribute 'data-ride="carousel"'
+            + 'id' used later when we want to add controls to click between slides
+            + classes provide styling and formatting
+            + 'data-ride' attribute provides interactivity and slide transitions
+        - nested '<div calss="carousel-inner">' element that contains other '<div>' elements
+          with images
+        - nested in 2nd '<div>' is another '<div>' with class of "carousel-item" and "active"
+        - each '<div>' with '.carousel-item' has nested '<img>' element which have usual
+          'src' and 'alt' attributes
+            + '<img>' elements use two utility classes "d-block" sets display as block and
+              "w-100" take up 100% of width

@@ -1,0 +1,44 @@
+Vectors
+  * sequence of elements that can be accessed by index
+  * must include '#include <vector>' to use vectors in program
+
+Creating a Vector
+  * syntax to create vector looks like:
+     - 'std::vector<type> name;'
+      + 'type' represents data type (int, bool, string)
+      + 'name' is name of vector
+
+
+
+Initializing a Vector
+  * can create and initialize vectors with data
+      - example:
+        + 'std::vector<double> name = {42.651443, -73.749302};'
+        + after initialization, bracket with two double values is typed
+  * can create and initialize vectors with empty data
+      - example:
+        + 'std::vector<double> name(2)';
+        + after 'name' parenthese with number creates vector with two empty values
+          inside vector
+
+
+Index
+  * when getting specific element in vector, use vector name and straight bracket
+    with number in it to call specific element and vector index.
+  * example:
+      std::vector<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+      std::cout << vowels[0] << "\n";
+      // will print 'a'
+
+
+Adding and Removing Elements:
+  * function to add element to vector as last element in list:
+     - '.push_back()'
+     - value in parenthese is whatever is added
+     - name of vector comes before function
+  * function remove element:
+    - '.pop_back()'
+    - nothing in parenthese (probably)
+
+.size()
+  * reports size of vector 

@@ -1,0 +1,120 @@
+React.js
+  * JavaScript library
+  * developed by engineers at Facebook
+  * fast
+      - Apps made in React can handle complex updates and still feel quick and responsive
+  * Modular
+      - instead of writing large dense files of code, write in many smaller reusable files
+      - can be beautiful solution to JavaScript's maintainability problems
+  * Scalable
+      - large programs displaying a lot of changing data are where React performs best
+  * Flexible
+      - Use React for interesting projects that have nothing to do with making a web app
+      - people are still figuring out React's potential
+  * Popular
+      - understanding React will make you more employable to companies
+
+
+
+JSX
+  * syntax extension for javascript
+      - JSX not valid JavaScript
+      - to compile, must have JSX compiler if JavaScript file contains JSX code
+  * code looks a lot like HTML
+
+
+
+
+JSX Elements and their Surroundings
+  * JSX elements treated as JavaScript expressions
+      - can go anywhere that JavaScript expression can go
+      - JSX element can be saved in a variable, passed to function, stored in an object or array
+      - Example:
+          const nabBar = <nav>I am a nav bar</nav>;
+      - Example of several JSX elements being stored in an object:
+          const myTeam = {
+            center: <li>Benzo Walli</li>,
+            powerForward: <li>Rasha Loa</li>,
+            smallForward: <li>Tayshaun Dasmoto</li>
+            shootingGuard: <li>Colmar Cumberbatch</li>
+            pointGuard: <li>Femi Billion</li>
+          };
+
+
+
+
+
+Attributes in JSX
+  * JSX elemetns can have attributes, just like HTML elements can
+  * JSX attribute written using HTML-like syntax: a name, followed bu equals sign, followed by value
+      - value should be wrapped in quotes
+      - example:
+          my-attribute-name="my-attirbute-value"
+
+      - JSX elements with attributes:
+          <a href-"http://www.example.com">Welcome to the web</a>;
+
+          const title = <h1 id="title">Introduction to React.js: Part I</h1>;
+
+      - single  JSX element can have many attributes, just like HTML
+          + example:
+              const panda = <img surc="images/panda.jpg" alt="panda" width="500px" height="500px" />
+
+
+
+
+Nested JSX
+  * you can nest JSX elements inside of other JSX elements
+      - example:
+          <a href="https://www.example.com">
+            <h1>
+              Click me!
+            </h1>
+          </a>
+      - if expression takes more than one line, put expression between parenthasese "()"
+  * can also be saved to variable
+
+
+
+
+JSX Outer Elements
+  * JSX expression must have exactly one outermost element
+      - if expression has more than one outer elements, wrapped them all
+        with the "<div>" expression
+      - example:
+          + will work:
+              const paragraphs = (
+                <div id="i-am-the-outermost-element">
+                  <p>I am a paragraph.</p>
+                  <p>I, too, am a paragraph.</p>
+                </div>
+              );
+
+          + will not work:
+              const paragraphs = (
+                <p>I am a paragraph.</p>
+                <p>I, too, am a paragraph.</p>
+              );
+
+
+
+
+
+ReactDOM.render()
+  * 'ReactDOM' is JavaScript library containing several React-specific methods dealing with DOM some way or another
+  * 'ReactDOM.render()' is most common way to render (appear on screen) JSX
+        - takes JSX expression, creates corresponding tree of DOM nodes, and adds tree to DOM
+        - first argument is expression we want to render
+            + appended to whatever element is selected by second argument
+        - second argument is container for first argument of 'ReactDOM.render()'
+        - example:
+            ReactDOM.render(<h1>Render me!</h1>, document.getElementById('app'));
+        - can use JSX expression stored variables as first argument
+
+
+
+
+Virtual DOM
+  * one specific thing about 'ReactDOM.render()': it only updates DOM elements that have changed
+      - if you render exact same thing twice, second render will do nothing
+  * this is what makes React successful

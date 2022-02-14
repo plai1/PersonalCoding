@@ -1,0 +1,42 @@
+COUNT()
+  * counts number of non-empty values of a selected column
+  * Example: SELECT COUNT(*) FROM table_name
+
+SUM(column)
+  * returns sum of all values in a selected column
+
+MAX(column) / MIN(column)
+  * returns data with highest/lowest value
+
+AVG(column)
+  * returns average number of integer data from column
+
+ROUND(column, integer)
+  * returns rounded value in column to number of decimal places specified by integer
+
+GROUP BY /column/
+  * clause used with aggregated functions
+  * work with select arranging identical data to groups
+  * goes after WHERE and before ORDER BY or LIMIT
+  * when using GROUP BY or ORDER BY, can use numbers (1, 2) instead of name of column to save code time
+    where numbers represent order of names selected after SELECT
+      - Example: SELECT col1, col2, col3, FROM table
+                    GROUP BY 1, 3, 2
+                    # 1 = col1, 2 = col2, 3 = col3
+
+HAVING
+  * filter groups of specific criteria
+  * WHERE only filters rows (which we don't want)
+  * comes after 'GROUP BY' but before 'ORDER BY' and 'LIMIT'
+
+WITH
+  * statement allowing us to performs separate query (aggregating lists)
+  *  WITH /temporaryTableName/ AS (
+        SELECT ....
+        ....
+        ...
+      )
+      SELECT *
+      FROM /anotherTable/
+      JOIN /row element/
+        ON /condition/

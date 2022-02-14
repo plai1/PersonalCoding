@@ -1,0 +1,77 @@
+Histogram
+  * statistic is often pitched as way to find certainty through data
+  * power of statistics more often used to communicate how uncertain we are about a problem
+  * best visualization tool for uncertainty and chaos in data is histogram
+  * histogram reveal, through numbers, interpretable trends in data
+      - doesn't provide yes or no answer but are often used as starting point for discussion and informing answer to data
+
+
+
+Summarizing Data
+  * purpose of histogram is to summarize data that's usable to inform decision or explain distribution
+  * people often use average of dataset to make broad claims about histogram's underlying trends
+      - average value of data may be useful to interpret where data is centered, it can also be misleading
+
+
+
+Range
+  * important to understand extremes of data: minimum and maximum values in dataset
+  * 'np.amin()' to find minimum value of a dataset
+  * 'np.amax()' to find maximum value of a dataset
+
+
+
+
+Bins and Count
+  * Bin
+      - sub-range of values that falls within range of dataset
+  * Count
+      - number of values that fall within bin's range
+
+
+
+Histograms
+  * calculate histogram array with 'numpy.histogram()'
+  * example:
+          exercise_ages = np.array([22, 27, 45, 62, 34, 52, 42, 22, 34, 26, 24, 65, 34,
+          25, 45, 23, 45, 33, 52, 55])
+
+          np.histogram(exercise_ages, range = (20, 70), bins = 5)
+     - 'exervise_ages' is input array
+     - 'range = (20, 70)' is range of values expect in array
+          + range includes everything from 20, up until but not including 70
+     - 'bins = 5' is number of bins
+          + Python will automatically calculate equally-sized bins based on range and number of bins
+  * output of example code above:
+          (array([7, 4, 4, 3, 2]), array([20., 30., 40., 50., 60., 70.]))
+      - first array 'array([7, 4, 4, 3, 2])' is counts for each bin
+      - second array 'array([20., 30., 40., 50., 60., 70.])' includes minimum and maximum
+        values for each bin:
+            + Bin 1: 20 to <30
+            + Bin 2: 30 to <40
+            + Bin 3: 40 to <50
+            + Bin 4: 50 to <60
+            + Bin 5: 60 to <70
+
+
+
+Plotting Histogram
+  * as size of datasets and bins for histogram increases, the more difficult it is to interpret
+  * due to this, histogram are typically viewed graphically
+      - bin ranges on x-axis and counts on y-axis
+  * possible to create graph plot with 'matplotlib.pyplot' package
+      - import with following code:
+            'from matplotlib import pyplot as plt'
+      - plotted histogram with code above, rest is setting up information and data into histogram
+            plt.hist(exervise_ages, range = (20, 70), bins = 5, edgecolo='black')
+
+            plt.title("Decade Frequence")
+            plt.xlabel("Ages")
+            plt.ylabel("Count")
+
+            plt.show()
+        + in code above, 'plt.hist()' function used to creat plot
+        + 'plt.title()' to create title
+        + 'plt.xlabel()' to label the x axis
+        + 'plt.ylabel()' to label the y axis
+        + 'plt.show()' to show the graph  

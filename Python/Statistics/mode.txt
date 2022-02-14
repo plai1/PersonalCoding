@@ -1,0 +1,8 @@
+Mode SciPy
+  * 'stats.mode()' function helps find mode of a dataset
+  * import 'stats' from 'scipy' to use 'stats.mode'
+      - Example:
+            from scipy import stats
+  * function takes in array as argument
+  * if array contains more than one mode, 'stats.mode()' will return the smallest mode (value) and
+    its count

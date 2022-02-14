@@ -1,0 +1,302 @@
+Learn Node.js
+  * Node.js is JavaScript runtime
+      - environment that allows coders to execute JavaScript code outside of broswer
+      -  "runtime" converts code written in high-level, human-readable, programming language and compiels it down to
+         code computer can execute
+  * Node created with goal of building web servers and web applicatons in JavaScript,
+    yet it can also be used for creating command-line applications or desktop applications
+
+
+Node of REPL
+  * REPL is abbreviation for read-eval-print loop.
+    - program that loops through three different states:
+      + read state
+        # program reads input from user
+      + eval state
+        # program evaluates user's input
+      + print state
+        # program prints out evaluation to console
+      + program loops through states again
+  * to access, download Node.JS and type 'node' in command prompt
+    - '>' character will appear
+    - REPL will evaluate input line by line
+      + to evaluate multiple lines at once, type '.editor' in REPL
+      + type "CONTROL" "D" for input to be evaluated
+  * can run javascript files with node. i.e.: 'node /filename/'
+
+
+
+Running Program with Node
+  * Node designed with server-side web development in mind and has lots of thoughtful
+    funtionality towards that end
+  * most simple, however, it provides ability to run JavaScript programs on own computers instead of just
+    in browser's console or embedded in HTML
+
+
+
+
+
+
+
+Accessing the Process Object
+  * Process
+      - instance of a computer program that is being executed
+      - Task Manager in Windows Machine has running percentage of what program is taking up
+        CPU power
+  * Node has global 'process' object
+      - contains useful methods & information about current process
+  * 'process.env' property is object that stores and controls information about
+    environment which process is currently running
+      - example:
+          + 'process.env' object contains 'PWD' (present working directory) property holding string with directory
+            which current process is located
+  * 'process.argv' property holds array of command line values provided when current process was initiated
+      - example: 'node myProgram.js testing several features'
+          + command typed into terminal to run javascript program with Node
+          + 'processed.argv[3]' would return 'several' because it is the fourth element typed into terminal
+  * 'process.memoryUsage()' returns information on CPU demands of current prcoess as Heap (could refer to specific data structure
+    or also to a block of computer memory)
+      - example:
+          { rss: 26247168,
+            heapTotal: 5767168,
+            heapUsed: 3573032,
+            external: 8772 }
+      - each number represents number of bytes of memory current process is using
+
+
+
+
+Core Modules and Local Modules
+  * Modularity is software design technique where one program has distinct parts each providing
+    single piece of overall functionality
+  * "modules" come together to build cohesive whole
+  * module: collection of code located in file
+  * entire program split into different files and combined through "requiring" them using
+    'require()' function
+
+
+
+
+Node Package Manager
+  * (NPM) is online collection, or registry, of software where developers can share written code to registry
+    or download code provided by other developers
+  * 'npm' command line added when Node is downloaded
+
+
+
+
+
+
+
+Event-Driven Architecture
+  * Node often described as having event-driven architecture
+  * in traditional imperative programming, we give computer series of instructions to execute in pre-defined
+    order
+  * when writing web applications, however, developers often need to write logic to handle
+    situations without knowing exactly when they'll occur.
+      - provide click event without knowing when user will trigger it
+  * this concept of event-driven principles was applied to Node with its back-end environment
+  * Node provides 'EventEmitter' class, accessable through dot notation of 'events' core module
+      - Example: 'events.EventEmitter()'
+      - Each event emitter instance has '.on()' method that assigns "listener" callback function to named event
+          + 'on()' method takes first argument the name of event as string and second argument as listener callback
+            function
+      - Each event emitter instance also has '.emit()' method which announces a named event has occurred
+          + '.emit()' method takes as its first argument the name of event as string and (as its second argument) the data
+            that should be passed into listener callback function
+
+
+
+
+
+Asynchronous JavaScript
+  * Node designed to use event loop (instead of halting execution of code to await operations or use mutliple threads like other
+    back end environments) to perform time-consuming tasks (reading files or querying databases) in server-side development
+  * Node provides number of API's for performing asynchronous tasks
+      - expect callback functions to be passed in as arguments
+      - these APIs trigger subscription to and emitting of events to signal completion of operations
+          + when operation completes, callback function added to queue (or line) of tasks waiting for turn to be executed
+          + when current stack (or list) or synchronous tasks finish executing, operations on queue will be performed
+              # means if synchronous tasks never end, operations waiting in event-queue would never have chance to run
+  * modern way of handling asynchronous tasks is throug JavaScript 'Promises'
+      - Newer versions of Node(v8.0.0 and later) provide collection of traditional Node asynchronous APIs formatted for
+        promises instead of callbacks
+          + can be found on 'util.promisfy'
+
+
+
+
+User Input/Output
+  * Output
+      - any data or feedback that computer provides (like to a human user)
+      - 'console.log()' prompts computer to output information to console
+  * Input
+      - data provided to computer
+      - In Node, we can also receive input from user through terminal using 'stdin.on()' method on 'process' object
+        + Example:
+              process.stdin.on('data', (userInput) => {
+                let input = userINput.toString()
+                console.log(input)
+              });
+        + use of '.on()' is here because 'process.stdin' is instance of 'EventEmitter'
+        + when user enters text into terminal and press enter, 'data' even will be fired and our anonymous
+          listener callback will be invoked
+        + 'userInput' is instance of Node Buffer Class, so we convert it to string before printing
+  * in Node environment, console is terminal and 'console.log()' method is "thin wrapper" on
+    '.stdout.write()' method of 'process' objected
+        - 'stdout' stands for standard output
+
+
+
+
+
+Errors
+  * Node environment has all standard JavasScript errors (EvalError, SyntaxError, RangeError, ReferenceErro, TypeError, and URIError, and error class)
+  * within own code, we can generate errors and throw them
+      - with synchronous code in Node, we can use error handling techniques such as 'try...catch' Statements
+  * many asynchronous Node APIs use error-first callback functions (which have error as first expected argument and data as second argument)
+      - if asynchronous task results in error, it will be passed in as first argument to callback function
+      - if no error thrown, first argument will be 'undefined'
+      - Example:
+            const errorFirstCallback = (err, data) => {
+              if (err) {
+                console.log(`There WAS and error: ${err}`);
+              } else {
+                // err was falsy
+                console.log(`There was NO erro. Event data: ${data}`);
+              }
+            }
+
+
+
+
+Filesystem
+    * all data on computer organized and accessed through filesystem
+    * when running JavaScript code on browser, it's important for script to have only limited access to user's
+      filesystem
+       - technique of isolating some applications from others known as sandboxing
+       - protects users from malicious programs and invasion of privacy
+    * in back-end, however, less restricted interaction with filesystem is essential
+        - Node 'fs' core module is API for interacting with File System (fs)
+        - modeled after POSIX (Portable Operating System Interface) standard for interacting with filesystem
+        - each method available through 'fs' module has synchronous version and asynchronous version
+          + one method available on 'fs' core module is '.readFile()' method which reads data from provided file
+          + example:
+                  const fs = require('fs');
+
+                  let readDataCallback = (err, data) => {
+                    if (err) {
+                      console.log(`Something went wrong: ${err}`);
+                    } else {
+                      console.log(`Provided file contained: ${data}`);
+                    }
+                  };
+
+                  fs.readFile('./file.txt', 'utf-8', readDataCallback);
+              # code required in 'fs' core module
+              # define error-first callback function expecting error to be passed as first argument and 'data' as second argument
+                  * if error is present, function will print 'Something went wrong: ${err}'
+                  * else, will print 'Provided file contained: ${data}'
+              # invoked '.readFile()' method with 3 arguments
+                  * first argument is string that contains path to file 'file.txt'
+                  * second argument is string specifying file's character encoding (usually 'utf-8' for text files)
+                  * third argument is callback function to be invoked when asynchronous task of reading from file system is complete
+                      - Node will pass contents of 'file.txt' into provided callback as its second argument
+
+
+
+
+
+Readable Streams
+  * unlike Filesystem, in realistic scenarios, data isn't processed all at once but rather sequentially, piece by piece, or stream
+  * streaming data often preferable since it doesn't need enough RAM to process all data at once nor need to have all data on hand
+    to begin processing
+  * one of simplest uses of streams is reading & writing to files line-by-line
+      - to read line-by-line, use '.createInterface()' method from 'readline' core module
+      - '.createInterface()' returns 'EventEmitter' set up to emit 'line' events
+      - example:
+            const readline = require('readLine');
+            const fs = require('fs');
+
+            const myInterface = readline.createInterface({
+              input: fs.createReadStream('text.txt')
+            });
+
+            myInterface.on('line', (fileLine) => {
+              console.log(`The line read: ${fileLine}`);
+            });
+          + required 'readline' and 'fs' core Modules
+          + assign to 'myInterface' with object containing designated 'input'
+          + sent 'input' to 'fs.createReadStream('text.txt')'; creating stream from 'text.txt' file
+          + next, assigned listener callback to execute when 'line' events are emitted
+              - a 'line' event will be emitted after each line from file is read
+          + listener callback will log console 'The line read: [fileLine]' where '[fileLine]' is line just read
+
+
+
+
+
+Writable Streams
+  * it is possible to create a writeable stream to file using 'fs.createWriteStream()' method
+      - Example:
+          const fs = require('fs')
+
+          const fileStream = fs.createWriteStream('output.txt');
+
+          fileStream.write('This is the first line!');
+          fileStream.write('This is the second line!');
+          fileStream.end();
+        + code above set output file 'output.txt'
+        + then use '.write()' to write liens to file
+        + unlike a readable stream, writable stream could remaine open indefinitely while a readable
+          stream ends when it has no more data to read
+        + we can indicate end of a writable stream with '.end()' method
+
+
+
+
+Create an HTTP Server
+  * Node designed with back end development needs as top priority; one of them is ability to
+    create web servers (computer processes that listen for requests from client sand return responses)
+  * Node core module designed to meet said needs is 'http' module
+      - module contains functions that simplify interacting with HTTP and streamline receiving and responding to requests
+  * 'http.createServer()' method returns instance of 'http.server'
+      - 'http.server' has method '.listen()' which causes server to "listen" for incoming connections
+  * when 'http.createServer()' run, we pass in custom callback function (often refereed to as 'requestListener')
+      - this callback function triggered once server is listening and receives a request
+  * breakdown of how requesListener callback function works:
+      - function expects two argumennts:
+          + request object
+          + response object
+      - each time request to server is made, Node will invoke provided 'requestListener' callback function, passing in request
+        and response objects of incoming request
+      - request and response objects come with number of properties and methods of their own, and within 'requestListener' function,
+        we can access information about request via request object passed in
+      - 'requestListener' is responsible for setting response header and body
+      - 'requestListener' must signal that interaction is complete by calling 'response.end()' method
+  * example:
+          const http = require('http');
+
+          let requestListener = (request, response) => {
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.write('Hello World!\n');
+            response.end();
+          };
+
+          const server = http.createServer(requestListener);
+
+          server.listen(3000);
+      - required in 'http' core module
+      - created 'server' variable assigned to return value of 'http.createServer()' method
+      - invoked 'http.createServer()' with code's 'requestListener' callback
+          + similar to running '.on()' of 'EventEmitter': the 'requrestListener' will execute whenever HTTP request
+            is sent to server on correct port
+      - within 'requestListener' callback, changed made to response object 'response' so that it can send information to client
+        sending request
+          + status code 200 means no errors were encountered
+          + header communicates that file type is text, rather than something like audio or compressed data
+      - last line starts server with port 3000
+          + every server on given machine specifies unique port so that traffic can be correctly routed
+  * example code can be run on local machine and accessed by visiting 'http://localhost:3000/' from
+    browser
+      - 'localhost' used to refer to same computer that's running current Node process

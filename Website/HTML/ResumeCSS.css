@@ -1,0 +1,23 @@
+body {
+  font-family: Arial;
+}
+
+h1.red{
+  color: red;
+}
+
+p.error {
+  color:orange;
+}
+
+ul.center {
+  text-align: center;
+}
+
+#p01{
+  color:black;
+}
+
+.aligncenter {
+  text-align: center;
+}

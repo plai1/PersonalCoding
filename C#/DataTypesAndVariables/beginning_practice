@@ -1,0 +1,34 @@
+using System;
+
+namespace Review
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      /* use this space to write your own short program!
+      Here's what you learned:
+
+
+      DATA TYPES: int, double, char, string, bool
+      VARIABLES: datatype variableName = value;
+      COMMON ERRORS: wrong type, wrong value, no semicolon
+      DATA TYPE CONVERSION: implicit, explicit, methods
+
+      Good luck! */
+      int num1 = 9;
+      double num2 = 13.4;
+      char letter = 'a';
+      string word = "hello";
+      bool right = true;
+
+      Console.WriteLine(num1);
+      Console.WriteLine(num2);
+      Console.WriteLine(letter);
+      Console.WriteLine(word);
+      Console.WriteLine(right);
+
+
+    }
+  }
+}

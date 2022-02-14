@@ -1,0 +1,36 @@
+* error handling invovles dealing with errors or making errors to make sure
+  code runs smoothly
+
+
+
+Constructing an Error
+  * We can write errors that coding language does not provide
+    for code that doesn't return the things that we want
+  * Example:
+      console.log(Error(/text that states your specific error/))
+        or
+      console.log(new Error(/text that states your specific error/))
+  * rest of code after error message doesn't compute
+
+
+
+
+Throw Keyword
+  * 'throw' word executes an error message
+  * Example:
+      throw Error(/error message/)
+  * same as constructing an error, rest of code after throw is ignored
+
+
+
+
+  try...catch Statement
+    * 'try' code runs code while searching for errors in code between its brackets
+    * if error is thrown, 'catch' statement catches error and runs code that follows
+      as the (e) after catch represents the error caught
+    * Example:
+        try {
+          /some code/
+        } catch(e){
+          /code that runs when an error is caught/
+        }

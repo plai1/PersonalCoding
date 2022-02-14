@@ -1,0 +1,3 @@
+NumPy Average
+  * NunPy '.average()' function gets average of a dataset (of numbers)
+  * import 'numpy' and then dot notation for '.average()' to find average

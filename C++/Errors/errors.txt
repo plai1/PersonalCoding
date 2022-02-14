@@ -1,0 +1,38 @@
+Four types of Errors in C++:
+  * Compile-Time Errors: Erros found by the compiler
+  * Link-Time Errors: Errors found by the linker when it's trying to combine
+    object files into an executable program
+  * Run-Time Errors: Errors found by checks in a running program
+  * Logic Errors: Errors found by the programmer looking for the cause of erroneous results
+
+
+
+Compile-Time Errors
+  * Two types of comiple time errors:
+      - Syntax errors: Errors that occur when we violate rules of C++ Syntax
+      - Type Errors: Errors that occur when there are mismatch between types declared
+
+
+Link-Time Errors
+  * when compiling is fine but program need function or library it can't find
+  * when dividing program into separate files and finally compiling them,
+    linker takes those separate object files and combines them into single executable
+    file
+    - link-time errors found by linker when it's trying to combine object files into executable file
+    - Example:
+       + using function that was never defined
+       + writing 'Main()' instead of 'main()'
+
+
+
+  Run-time Errors
+    * errors that happen during run-time after compiling
+    * occur when program (after compile and link-time error is not found) asks computer
+      to do something that is unable to reliably do
+    * happens after using './' to execute file
+
+
+
+  Logic Errors
+    * errors where program doesn't do what coder want it to do or when no output is produced
+    * depend on logical thinking of programmer

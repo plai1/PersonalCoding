@@ -1,0 +1,17 @@
+Compile & Execute
+  * When programming in C++, goes through 4 phases:
+    - Code (writing the program)
+    - Save (saving the program)
+    - Compile (compiling via the terminal)
+    - Execute (executing via the terminal)
+  * to compile a file, type 'g++' in front of file name in terminal
+  * compiler translate program and create machine code file called 'a.out'
+  * to execute, type './' and machine code file ('a.out') in terminal to run it
+
+Compile & Execute (Naming Executables)
+  * sometimes when compiling, we want to name output executable file a specific name
+  * to do this, after typing 'g++' and file name, type '-o' and a name for that file
+  * the machine code file will then be the name that you typed in terminal after '-o'
+  * example:
+        g++ hello.cpp -o hello
+        ./hello

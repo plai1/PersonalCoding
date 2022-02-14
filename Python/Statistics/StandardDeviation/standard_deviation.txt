@@ -1,0 +1,36 @@
+Standard Deviation
+  * variance is tricky statistic to use cause its units are different from both mean data itself
+      - Example: mean of NBA dataset is 77.98 inches, so someone that is 80 inches tall is 2 inches taller
+        than average NBA player
+          + but because formula for variance includes squaring difference between data and mean, variance
+            is measured in units squared
+          + this means variance for NBA is 13.32 inches squared
+          + hard to interpret in context with mean or data cause units are different
+          + this is where statistic standard deviation useful
+  * standard deviation computed by takign square root of variance
+  * in python, square root of number can be found using '** 0.5'
+
+
+
+
+Standard Deviation in NumPy
+  * there is NumPy function dedicated to finding standard deviation of dataset
+  * NumPy function 'std()' takes dataset as parameter and returns standard deviation of that dataset
+​     - Example:
+          import numpy as np
+
+          dataset = [4, 8, 15, 16, 23 ,42]
+          standard_deviation = np.std();
+
+
+
+
+Using Standard Deviation
+  * using matching units makes measure of spread easier to interpret
+  * finding number of standard deviations a data point is away from mean, it is possible to begin investigating
+    how unusual datapoint truly is
+      - 68% of data fall within one standard deviation of mean
+      - 95% of data fall within two standard deviations of mean
+      - 99.7% of data fall within three standard deviations of mean
+      - having data points over three standard deviations away from mean is very unusual
+​

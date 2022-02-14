@@ -1,0 +1,38 @@
+Variance
+  * when two datasets have same mean and median, report would not show any meaningful difference
+    between these two datasets
+  * that is when variance comes into play
+      - descriptive statistic that describes how spread out points in data set are
+
+
+
+
+Distance from mean
+  * to have variacne in data set of all sizes, find difference between each data with the data's mean
+    to find the distance of a specific data from the mean
+
+
+
+Average Distances
+  * distances from mean shows how spread out the data is, but calculating variance depends on getting one number
+    than describes entire dataset
+  * to do this, we find the average of the differences from mean
+
+
+
+Square the Differences
+  * in datasets, there would be times where mean of a dataset is 0 (because of negative numbers)
+  * when calculating variance, we don't care if data point was above or below mean, we only care about
+    how far away it was
+  * to deal with these negative numbers, square the difference between each data point and mean
+      - difference = (mean - data)^2
+
+
+
+Variance in NumPy
+  * equation for variance starts by taking every point in dataset (point 1 to point n) and finding difference
+    between that point and mean
+  * next, square each difference to make all differences positive
+  * finally, average those squared differences by adding them together and dividing by N (total number of points in dataset)
+  * can be calculated quickly with Python's NumPy library.
+      - 'var()' function does just that

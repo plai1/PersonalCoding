@@ -1,0 +1,21 @@
+C++
+
+* Founded by Bjarne Stroustrup
+
+* Can be found in:
+  - operating systems
+  - web browsers
+  - microcontrollers
+  - video games
+  - and elsewhere
+
+* A compiled language
+  - to get a C++ program to run, first translate it from human-readable form to something
+    a machine can "understand".
+      + translation done by program called compiler
+
+* C++ is mainly used in applications and operating systems
+
+* can be used for building higher-level applications with graphics libraries,
+  application to communicate with network devices and computer network simulators 
+  as well as remote device systems and network management

@@ -1,0 +1,21 @@
+Expression Bodied Definitions
+  * first "shortcut" for writing methods
+  * great for writing one-line methods
+  * create function and us '=>' to assign function name to function
+  * does not need 'return'
+  * Example:
+      type function(parameter) => functionWork;
+
+Lambda Expressions
+  * way to pass a method as an argument for another method
+  * define a function used as an argument in a method through expression bodied definition
+  * uses bracket after fat arrow '=>' to define function with multiple lines
+  * doesn't need a function name, just a parameter in parenthese and then function after fat arrow when
+    using said function as an argument
+  * Example:
+      bool /object/ = /function/(/parameter/, (/function parameter/) => /function/)
+
+Shorter Lambda Expressions
+  * when lambda functions have obvious data types that is inputed, you don't need to state
+    data type of the lambda functions parameter
+  * if there is only one parameter, you don't need the parentheses around the parameter.

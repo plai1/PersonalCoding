@@ -1,0 +1,126 @@
+Promise
+  * objects that represent eventual outcome of asynchronous operation
+      - asynchronous: use of one code while another code is running
+  * can have three states:
+      - Pending: initial state where operation is not completed yet
+      - Fulfilled: operation successfully completed and promise now has resolved value
+      - Rejected: operation has failed and promise has reason for failure (Error)
+  * constructing promise object:
+      const /function name/ = (resolve, reject) => { };
+      const /variable name/ = new Promise (/function name/);
+      - in first function, argument resolve is function with one argument (usually a statement)
+        that makes the promise's pending status to fulfilled
+      - the reject argument is same as resolve but is when pending status is rejected when invoked
+      - example:
+          const executorFunction = (resolve, reject) => {
+            if (someCondition) {
+              resolve('I resolved!');
+            } else {
+              reject('I rejected!');
+            }
+          }
+          const myFirstPromise = new Promise(executorFunction);
+
+
+
+
+Node setTimeout() function
+  * function that takes in two arguments: function and integer
+    - the function is a function selected
+    - the integer represents how long in miliseconds to delay until the function is executed
+    - code won't delay exactly down to the millisecond
+      + delay performed asynchronously (rest of code won't stop executing during delay)
+      + asynchronous javascript uses something called event-loop
+      + before running, any synchronous code from program will run and then any code in front
+        of it in the line will run
+
+
+
+
+
+Consuming Promises
+  * after pending from a promise, '.then()' function is run to tell what to do next
+  * '.then()' is high order function
+      - takes two callback function as arguments (handlers)
+        + first handler (onFulfilled) is success handler containing logic for the promise resolving
+        + second handler (onRejected) is failure handler containing logic for promise rejecting
+  * '.them()' can be invoked with one, both, or no handlers
+     - allows flexibility but also make for tricky debugging
+  * if appropirate handler not provided, '.then()' return promise with same settled value as
+    the promise it was called on
+  * '.them()' always returns a promise
+  * each argument for '.them()' does not need parentheses
+
+
+
+
+
+  Using catch() with promise
+    * one way to write cleaner code is following principle: separation of concerns
+        - means organizing code into distinct sections each handling specific task
+        - enables us to quickly navigate our code and know where to look if something
+          isn't working
+    * it is possible to attach more than one '.then()' code
+        - the first '.then()' containing only the resolved portion
+        - dot put to differentiate the two '.then()'
+        - the second '.then()' containing 'null' as its first argument and the
+          rejected portion of the promise as the second argument
+    * another way to this is '.catch()'
+        - same as putting second '.then()' but only need one argument: the rejected
+          portion of the promise
+
+
+
+
+
+Chaining Multiple Promises
+  * composition: process of chaining promises together
+  * after first pormise executed, '.then()' statement catches resolved part of first promise.
+  * in first '.then()', second promise function is executed using the frist promise resolved return argument as parameter
+  * a second '.then()' is executed from the second resolved promise which executes code
+  * example:
+              firstPromiseFunction()
+              .then((firstResolveVal) => {
+                  return secondPromiseFunction(firstResolveVal);
+              })
+              .then((secondResolveVal) => {
+                  console.log(secondResolveVal);
+              });
+  * can have multiple promises and only one catch for any rejected promises
+
+
+
+
+  Common Mistakes with Promises
+    * nesting promises instead of chaining them
+        - can't handle more than one promises more than once
+    * forgetting to return a promise:
+        - in '.then()', make sure to add 'return' in each second promise(s)
+           + not doing so will cause '.then()' to be invoked on promise with same settled
+             value as original promise
+        - won't throw error so really tricky to debug
+
+
+
+
+Promise.all()
+    * concurrency
+      - running multiple asynchronous operations at once
+      - useful when executing promises in no particular order
+      - maxmize efficiency
+    * best to do this with 'Promise.all()'
+      - accepts array of promises as argument and return single promise
+         + if every promise in argument array resolves, 'Promise.all()' returns single
+            promise and resolve an array containing resolve value from each promise in array
+         + if any promise from array rejects, the single promise returned from 'Promise.all()'
+            will reject with reason promise is rejected (failing fast)
+    * example:
+        let myPromises = Promise.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+
+        myPromises
+          .then((arrayOfValues) => {
+            console.log(arrayOfValues);
+            })
+          .catch((rejectionReason) => {
+            console.log(rejectionReason);
+          });

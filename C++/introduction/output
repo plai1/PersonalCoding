@@ -1,0 +1,19 @@
+C++ introduction
+  * example code:
+      #include <iostream>           //include libraries//
+
+      int main()    //The main() function
+      {     //beginning of a function
+          //What the program does//
+      }   //end of function
+
+  * print statement:
+        std::cout << "Hello World!\n";
+        - (std::cout) is '(c)haracter (out)put stream', pronounced "see-out"
+        - (<<) is operator that comes right after
+        - ("Hello World!\n") is what's outputted, "\n" indicates new line
+        - (;) in punctuation that tells computer it is end of statement
+
+  * the (#include <iostream>) is known as a pre-processor directive
+    - instructs compiler to locate file containing code for library (iostream)
+    - library contains code that allows for input and output (displaying data in terminal window, or reading input from keyboard)

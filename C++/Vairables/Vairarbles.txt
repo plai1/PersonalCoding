@@ -1,0 +1,27 @@
+
+* Basic Data Types of C++:
+  - 'int': integer numbers
+  - 'double': floating-point numbers
+  - 'char': individual characters
+  - 'string': a sequence of characters
+  - 'bool': true/false values
+
+* declaring and initializing variables same as java
+
+* to declare variable:
+    std::cout << /variable/ << "\n";
+
+    - notice how after variable is placed, another pair of '<<' is written and "\n" is declared later.
+
+
+Chaining
+  * when printing out different types of data with one 'std::cout':
+      std::cout << /datatype1/ << /dataTyp2/ << "\n";
+
+User Input
+  * asking user to input something
+  * example:
+      std::cin >> tip;
+      - 'cin' refers to "see-in" or (character input)
+      - '>>' refers to ("Get from") to where that input goes
+      - 'tip' defines variable input is set to (variable is declared first before use)

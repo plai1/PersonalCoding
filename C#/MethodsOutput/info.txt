@@ -1,0 +1,7 @@
+Out
+  * put in front of method parameter to output another piece of information
+  * methods usually output one piece of information
+  * example:
+      functions someMethod(num1, out num2)
+  * when creating a function or calling the method, out must be used to return more than one piece of information
+  * parameter with out must be assigned to a value in the method it is called in

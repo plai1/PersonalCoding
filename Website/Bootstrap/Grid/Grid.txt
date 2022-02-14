@@ -1,0 +1,145 @@
+Bootstrap
+  * creating website from scratch take lots of work and require working knowledge of HTML, CSS, and
+    some JavaScript which can be reduced with Bootstrap
+  * Bootstrap is framework of readily available code (that integrates with HTML) to create
+    stylized websites that adapt layout to screen sizes
+      - allows users to cut down time needed to:
+          + style website
+          + simplify complexity of how to layout elements
+          + works across multiple browsers
+          + reduce frustration of using plain CSS
+
+
+
+
+Intro to the Grid
+  * bootstrap simplifies layout of website using grid system
+  * containers are basis of Bootstrap's grid
+      - in containers, rows are nested as immediate children
+      - nested inside rows are columns
+      - inside columns, we put actual content
+
+
+
+Bootstrap Containers
+  * bootstrap uses grid system based on CSS Flexbox which organizes content in rows or columns
+  * bootstrap also uses rows and columns
+  * using Bootstrap grid also allows for responsive design
+      - website's layout can change based on user's screen size
+      - to create container, assign class of 'container' to a '<div>'
+      - if asking for container to take up entire width of screen,
+        assign class of 'container-fluid'
+            + '<div class="container-fluid"></div>'
+
+
+
+
+Rows
+  * nested within containers
+  * can add as many as we want inside container
+  * will take up entire width of its parent container
+  * default: row will take up entire width of parent container
+  * assign 'class' of "row" to element
+      Example:
+          <div class="container">
+            <div class="row">
+            </div>
+          </div>
+
+
+
+
+
+Columns
+  * immediate children of rows and store content
+  * default: take up entire width of parent row
+  * adding more columns inside causes column's width to be readjusted to fit in row
+      - each column will have same width
+  * at most: row will accommodate 12 columns
+  * to create column, assign element with 'class' of "col"
+      -Example:
+          <div class="container">
+            <div class="row">
+              <div class="col">
+              </div>
+            </div>
+          </div>
+
+
+
+
+Setting Column Widths
+  * bootstrap gives us more customization options to make columns of varying widths
+  * decide width of column by appending hyphen and number to "col"
+      - example:
+          <div class="col-8">
+            <p>This is the width of 8 columns.</p>
+          </div>
+      - example above still has 4 columns worth of space left
+      - possible to add adjacent column
+      - example:
+          <div class="row">
+            <div class="col-8">
+              <p>This is the width of 8 columns.</p>
+            </div>
+            <div class="col-4">
+              <p>This has the width of 4 columns.</p>
+            </div>
+          </div>
+  * if we didn't specify desired width for second column, still resize itself to fill
+    in remaining space in row
+      - by adding "-4", we make code more readable and allow other developers to clearly know
+        our intentions
+
+
+
+
+Setting Column Width with Content
+  * another option to set width of column is content inside column
+  * to use content to set column's width, append "auto" to 'class' of column
+      - example:
+          <div class="col-auto">
+            <p>This content determines the width of the parent column</p>
+          </div>
+
+
+
+
+Bootstrap Breakpoints
+  * one benefit of Bootstrap is that it incorporates responsive design
+      - layout of content changes to accommodate user's screen size
+  * bootstrap categorizes screen sizes into 5 categories (breakpoints):
+      - extra small
+      - small
+      - medium
+      - large
+      - extra large
+
+
+
+
+Breakpoint Naming Convention
+  * using Bootstrap, we can freely change layout of content using grid
+      - can customize how content on grid changes based on breakpoints
+  * naming convention follows pattern of "col-{breakpoint}-{width}"
+      - "col" refers to column
+      - "{breakpoint}" can be 'sm', 'md', 'lg', or 'xl'
+          + if we omit "{breakpoint}", default will be for small screen
+      - "{width}" set from '1' to '12' and assigns width to column
+      - when set "{breakpoint}-{width}", means that we want column to have that set widht
+        for screens that fit in specified breakpoint range and other larger screens
+  * example:
+      <div class="col-sm-8">
+      </div>
+
+
+
+
+Combining Bootstrap Classes
+  * possible to add multiple classes to columns for additional control over rendering of content
+  * example:
+          <div class="col-12 col-md-8 col-xl-6">
+          </div>
+      - first 'col' sets for 'xs' screens
+      - second 'col' sets for 'md' screens
+      - third 'col' sets for 'xl' screens 

@@ -1,0 +1,26 @@
+Used for exporting files to be retrieved in different other files
+Very efficient and useful.
+
+Node.js:
+  * uses 'module.exports = /object/;' for exporting file
+  * 'require(/exportedFile/);' to retrieve data for exported file
+  * doesn't work in ES6 syntax
+
+ES6:
+  * export default
+     - uses 'export default /object/' to export things
+     - 'import /object/ from /file/' to import objects and instances from exported file
+
+  * named exports
+     - exports data using variables
+     -'export {/number of objects or method seperated by commas/}' to export data
+     -'import {/name(s) of objects or method that was exported/} from "/exportedFile/" ' to retreive data into another file
+
+  * export named exports
+     - can put 'export' in front of objects to instantly export that object
+
+  * Export as
+     - when exporting with named exports, objects can be renamed with 'as' in brackets to give it another variable name
+      to call for in another file
+     - when importing, can use '*' to grab entire exported module but must name it with a variable with as
+        # Example: (import * as Carte from './menu';)

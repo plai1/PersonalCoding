@@ -1,0 +1,3 @@
+Median NumPy
+  * NumPy '.median()' function returns median of sorted/unsorted array
+  * import 'numpy' to use '.median()'
